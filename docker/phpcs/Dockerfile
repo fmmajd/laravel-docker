@@ -11,6 +11,8 @@ RUN apt-get update \
     && mv composer.phar /usr/local/bin/composer \
     && composer global require "squizlabs/php_codesniffer=*"
 
-RUN echo 'export PATH="/root/.composer/vendor/bin:$PATH"' >> ~/.bashrc
+RUN echo 'export PATH="/root/.composer/vendor/bin:$PATH"' >> ~/.bashrc \
+    && ln -s /root/.composer/vendor/bin/phpcs /usr/local/bin/phpcs \
+    && ln -s /root/.composer/vendor/bin/phpcbf /usr/local/bin/phpcbf
 
 WORKDIR /var/www/html

@@ -44,3 +44,7 @@ composer_install:
 composer_autoload:
 	@echo "Generating new autoload files..."
 	@docker-compose run --rm composer composer dump-autoload
+
+style:
+	@echo "Checking style via phpcs..."
+	@docker-compose exec phpcs phpcs
