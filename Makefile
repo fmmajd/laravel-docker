@@ -9,7 +9,7 @@ up:
 
 down:
 	@echo "Downning the docker containers..."
-	@docker-compose down
+	@docker-compose down --remove-orphans
 
 bash:
 	@echo "Summoning the bash..."
