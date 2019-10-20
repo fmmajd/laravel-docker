@@ -11,6 +11,10 @@ down:
 	@echo "Downning the docker containers..."
 	@docker-compose down --remove-orphans
 
+restart:
+	@echo "Restarting the docker containers..."
+	@docker-compose restart
+
 bash:
 	@echo "Summoning the bash..."
 	@docker-compose exec --user=1001 php bash

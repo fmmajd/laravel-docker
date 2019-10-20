@@ -38,6 +38,11 @@ services:
       - .:/var/www/html
     command: composer install --ignore-platform-reqs --no-scripts
 
+  phpcs:
+    build: docker/phpcs
+    volumes:
+      - .:/var/www/html
+
   swagger:
     image: swaggerapi/swagger-ui
     environment:
