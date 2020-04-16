@@ -22,7 +22,7 @@ services:
       - ./docker/log/nginx:/var/log/nginx
 
   db:
-    image: mariadb:10.4
+    image: mariadb:10.5
     ports:
       - ${DOCKER_DATABASE_PORT-3306}:3306
     environment:
