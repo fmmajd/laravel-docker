@@ -4,28 +4,20 @@ say_hello:
 	@echo "Hello World!"
 
 up:
-	@echo "Upping the docker containers..."
 	@docker-compose up -d
 
 down:
-	@echo "Downning the docker containers..."
 	@docker-compose down --remove-orphans
 
 restart:
-	@echo "Restarting the docker containers..."
-	@docker-compose restart
+	@docker-compose down --remove-orphans
+	@docker-compose up -d
 
 bash:
-	@echo "Summoning the bash..."
 	@docker-compose exec --user=1001 php bash
 
 root_bash:
-	@echo "Summoning the bash..."
 	@docker-compose exec php bash
-
-build:
-	@echo "Building the docker containers..."
-	@docker-compose build
 
 permissions:
 	@echo "Correcting all the permissions..."
@@ -38,13 +30,10 @@ permissions:
 	@echo "Permissions updated"
 
 composer_install:
-	@echo "Installing composer packages..."
 	@docker-compose run --rm composer composer install
 
 composer_autoload:
-	@echo "Generating new autoload files..."
 	@docker-compose run --rm composer composer dump-autoload
 
-style:
-	@echo "Checking style via phpcs..."
+phpcs:
 	@docker-compose exec phpcs phpcs
