@@ -3,7 +3,7 @@ FROM php:7.3-fpm
 RUN apt-get update && apt-get install -y \
 	libmcrypt-dev  \
 	libicu-dev \
-	mysql-client \
+	default-mysql-client \
     libfreetype6-dev \
     libjpeg62-turbo-dev \
     libpng-dev \
