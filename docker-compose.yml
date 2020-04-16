@@ -51,3 +51,13 @@ services:
       - ${DOCKER_SWAGGER_PORT-8091}:8080
     volumes:
       - .:/mnt
+
+  rabbitmq:
+    image: rabbitmq:3.8-management
+    ports:
+      - ${DOCKER_RABBITMQ_UI_PORT-15672}:15672
+      - ${DOCKER_RABBITMQ_PORT-5672}:5672
+    environment:
+      - RABBITMQ_DEFAULT_USER=${RABBITMQ_USER}
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_PASSWORD}
+
